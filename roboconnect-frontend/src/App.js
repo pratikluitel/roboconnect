@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import Departments from "./Components/Departments";
+import Events from "./Components/Events";
+import Projects from "./Components/Projects";
+import Tournaments from "./Components/Tournaments";
+import Members from "./Components/Members";
+import Header from "./Components/Header";
+import Pitch from "./Components/Pitch";
+
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  grid: {
+    padding: theme.spacing(4),
+    textAlign: "center",
+  },
+}));
 
 function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.root}>
+      <Header />
+      <Grid container className={classes.grid} spacing={3}>
+        <Grid item xs={12}>
+          <Pitch />
+        </Grid>
+        <Grid item xs={12}>
+          <Members />
+        </Grid>
+        <Grid item xs={12}>
+          <Departments />
+        </Grid>
+        <Grid item xs={12}>
+          <Projects />
+        </Grid>
+        <Grid item xs={12}>
+          <Tournaments />
+        </Grid>
+        <Grid item xs={12}>
+          <Events />
+        </Grid>
+      </Grid>
     </div>
   );
 }

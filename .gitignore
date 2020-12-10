@@ -1,3 +1,4 @@
 node_modules
 .prettyinc
 .eslintrc
+.eslintcache
