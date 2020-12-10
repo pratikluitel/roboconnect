@@ -39,4 +39,22 @@ const deleteMember = async (id) => {
   await axios.delete(url + `/${id}`);
 };
 
-export { getMembers, putMember, deleteMember };
+const postMember = async ({
+  firstname,
+  lastname,
+  email,
+  department,
+  projects,
+  photo,
+}) => {
+  await axios.post(url, {
+    first_name: firstname,
+    last_name: lastname,
+    email: email,
+    dept: department,
+    project_ids: projects,
+    photo_uri: photo,
+  });
+};
+
+export { getMembers, putMember, deleteMember, postMember };

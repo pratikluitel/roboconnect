@@ -2,7 +2,7 @@ import { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-const MemberForm = ({ member, handleEdit, handleExpandClick }) => {
+const ModalForm = ({ handleAdd, handleModalclose }) => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -11,9 +11,8 @@ const MemberForm = ({ member, handleEdit, handleExpandClick }) => {
   const [photo, setPhoto] = useState("");
 
   const handleSubmit = (event) => {
-    handleEdit(
+    handleAdd(
       {
-        id: member.id,
         firstname,
         lastname,
         email,
@@ -29,7 +28,7 @@ const MemberForm = ({ member, handleEdit, handleExpandClick }) => {
     setDepartment("");
     setProjects("");
     setPhoto("");
-    handleExpandClick();
+    handleModalclose();
   };
   return (
     <form noValidate autoComplete="off" onSubmit={handleSubmit}>
@@ -88,9 +87,9 @@ const MemberForm = ({ member, handleEdit, handleExpandClick }) => {
         onChange={({ target }) => setPhoto(target.value)}
       />
       <br />
-      <Button type="submit">Edit</Button>
+      <Button type="submit">Add</Button>
     </form>
   );
 };
 
-export default MemberForm;
+export default ModalForm;
