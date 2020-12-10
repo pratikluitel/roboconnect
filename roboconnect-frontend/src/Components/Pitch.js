@@ -1,5 +1,5 @@
 const Pitch = () => (
-  <div className="pitch" style={{ padding: "0px 30px 0px 30px" }}>
+  <div className="pitch" style={{ padding: "0px 0px 0px 0px" }}>
     <h1>About Us</h1>
     <p>
       The Robotics Club of Pulchowk Campus was founded in 2001 A.D. by a group

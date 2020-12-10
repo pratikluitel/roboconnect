@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   grid: {
-    padding: theme.spacing(4),
+    padding: theme.spacing(8),
     textAlign: "center",
   },
 }));
@@ -24,7 +24,7 @@ function App() {
   return (
     <div className={classes.root}>
       <Header />
-      <Grid container className={classes.grid} spacing={3}>
+      <Grid container className={classes.grid}>
         <Grid item xs={12}>
           <Pitch />
         </Grid>

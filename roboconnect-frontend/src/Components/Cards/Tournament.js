@@ -1,4 +1,12 @@
-import { Grid, Card, CardContent, CardHeader } from "@material-ui/core";
+import {
+  Grid,
+  Card,
+  CardContent,
+  CardHeader,
+  IconButton,
+} from "@material-ui/core";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const Tournament = ({ tournament }) => (
   <Grid item xs={3}>
@@ -8,6 +16,14 @@ const Tournament = ({ tournament }) => (
       <CardContent>{tournament.location}</CardContent>
       <CardContent>Theme: {tournament.theme}</CardContent>
       <CardContent>{tournament.date}</CardContent>
+      <CardContent>
+        <IconButton>
+          <EditIcon />
+        </IconButton>
+        <IconButton>
+          <DeleteIcon />
+        </IconButton>
+      </CardContent>
     </Card>
   </Grid>
 );
