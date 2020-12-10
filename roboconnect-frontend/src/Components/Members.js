@@ -24,7 +24,7 @@ const Members = () => {
   ];
   return (
     <div className="members">
-      <h2>Proud members of the Robotics Club family</h2>
+      <h1>Proud members of the Robotics Club family</h1>
       <Grid container spacing={1} alignItems="center" justify="center">
         {members.map((member) => (
           <Member

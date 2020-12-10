@@ -5,7 +5,7 @@ const Departments = () => {
   const departments = ["Mechanical", "Electronics", "Electrical", "Aerospace"];
   return (
     <div className="members">
-      <h2>Departments</h2>
+      <h1>Departments</h1>
       <Grid container spacing={1} alignItems="center" justify="center">
         {departments.map((department) => (
           <Department name={department} />

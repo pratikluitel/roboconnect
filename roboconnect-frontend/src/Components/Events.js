@@ -34,7 +34,7 @@ const Events = () => {
   ];
   return (
     <div className="members">
-      <h2>Events we have organized</h2>
+      <h1>Events we have organized</h1>
       <Grid container spacing={1} alignItems="center" justify="center">
         {events.map((event) => (
           <Event

@@ -34,7 +34,7 @@ const Tournaments = () => {
   ];
   return (
     <div className="members">
-      <h2>Tournaments we have participated in!</h2>
+      <h1>Tournaments we have participated in!</h1>
       <Grid container spacing={1} alignItems="center" justify="center">
         {tournaments.map((tournament) => (
           <Tournament tournament={tournament} />
