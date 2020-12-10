@@ -12,7 +12,6 @@ const getMembers = async () => {
     projects: member.project_ids,
     photo: member.photo_uri,
   }));
-  console.log(actualMembers);
 
   return actualMembers;
 };
@@ -26,7 +25,7 @@ const putMember = async ({
   projects,
   photo,
 }) => {
-  const reply = await axios.put(url + `/${id}`, {
+  await axios.put(url + `/${id}`, {
     first_name: firstname,
     last_name: lastname,
     email: email,
@@ -34,7 +33,6 @@ const putMember = async ({
     project_ids: projects,
     photo_uri: photo,
   });
-  console.log(reply);
 };
 
 const deleteMember = async (id) => {

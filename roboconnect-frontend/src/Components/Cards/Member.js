@@ -17,19 +17,20 @@ import DeleteIcon from "@material-ui/icons/Delete";
 
 import { useStyle } from "../helpers/collapseStyleHelper";
 
-const Member = ({ id, name, image, email, handleDelete }) => {
+import MemberForm from "../Forms/MemberForm";
+
+const Member = ({ member, handleDelete, handleEdit }) => {
   const classes = useStyle();
 
   const [expanded, setExpanded] = useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
   return (
     <Grid item xs={3}>
       <Card variant="outlined">
-        <CardHeader title={name} subheader={email} />
-        <CardMedia component="img" src={image} />
+        <CardHeader title={member.name} subheader={member.email} />
+        <CardMedia component="img" src={member.photo} />
         <CardActions>
           <IconButton
             className={clsx(classes.expand, {
@@ -39,12 +40,18 @@ const Member = ({ id, name, image, email, handleDelete }) => {
           >
             <EditIcon />
           </IconButton>
-          <IconButton onClick={() => handleDelete(id)}>
+          <IconButton onClick={() => handleDelete(member.id)}>
             <DeleteIcon />
           </IconButton>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent></CardContent>
+          <CardContent>
+            <MemberForm
+              member={member}
+              handleEdit={handleEdit}
+              handleExpandClick={handleExpandClick}
+            />
+          </CardContent>
         </Collapse>
       </Card>
     </Grid>

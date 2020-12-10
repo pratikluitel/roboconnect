@@ -3,7 +3,7 @@ import Member from "./Cards/Member";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { IconButton } from "@material-ui/core";
 
-import { getMembers, deleteMember } from "../services/members";
+import { getMembers, deleteMember, putMember } from "../services/members";
 import { useState, useEffect } from "react";
 
 const Members = () => {
@@ -24,7 +24,12 @@ const Members = () => {
     await deleteMember(id);
     toggleRefetch();
   };
-
+  const handleEdit = async (member, event) => {
+    event.preventDefault();
+    await putMember(member);
+    toggleRefetch();
+  };
+  console.log(members);
   return (
     <div className="members" style={{ marginTop: "50px" }}>
       <h1>Proud members of the Robotics Club family</h1>
@@ -32,11 +37,9 @@ const Members = () => {
         {members.map((member) => (
           <Member
             key={member.id}
-            id={member.id}
-            name={member.name}
-            image={member.image}
-            email={member.email}
+            member={member}
             handleDelete={handleDelete}
+            handleEdit={handleEdit}
           />
         ))}
         <IconButton>
