@@ -17,7 +17,7 @@ const Header = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ background: "#191919" }}>
+      <AppBar position="fixed" style={{ background: "#191919" }}>
         <Toolbar>
           <Button>
             <Typography
