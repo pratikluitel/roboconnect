@@ -30,7 +30,7 @@ const Member = ({ member, handleDelete, handleEdit }) => {
     <Grid item xs={3}>
       <Card variant="outlined">
         <CardHeader title={member.name} subheader={member.email} />
-        <CardMedia component="img" src={member.photo} />
+        <CardMedia component="img" src={member.photo} height={300} />
         <CardActions>
           <IconButton
             className={clsx(classes.expand, {

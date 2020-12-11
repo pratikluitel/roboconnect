@@ -16,7 +16,9 @@ import DeleteIcon from "@material-ui/icons/Delete";
 
 import { useStyle } from "../helpers/collapseStyleHelper";
 
-const Tournament = ({ tournament }) => {
+import MemberForm from "../Forms/TournamentForm";
+
+const Tournament = ({ tournament, handleDelete, handleEdit }) => {
   const classes = useStyle();
 
   const [expanded, setExpanded] = useState(false);
@@ -40,12 +42,18 @@ const Tournament = ({ tournament }) => {
           >
             <EditIcon />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={() => handleDelete(tournament.id)}>
             <DeleteIcon />
           </IconButton>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>This is a form</CardContent>
+          <CardContent>
+            <MemberForm
+              member={tournament}
+              handleEdit={handleEdit}
+              handleExpandClick={handleExpandClick}
+            />
+          </CardContent>
         </Collapse>
       </Card>
     </Grid>

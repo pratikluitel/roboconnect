@@ -3,12 +3,14 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
 const MemberForm = ({ member, handleEdit, handleExpandClick }) => {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [department, setDepartment] = useState("");
-  const [projects, setProjects] = useState("");
-  const [photo, setPhoto] = useState("");
+  const [firstname, setFirstname] = useState(member.name.split(" ")[0]);
+  const [lastname, setLastname] = useState(
+    member.name.split(" ")[member.name.split(" ").length - 1]
+  );
+  const [email, setEmail] = useState(member.email);
+  const [department, setDepartment] = useState(member.department);
+  const [projects, setProjects] = useState(member.projects);
+  const [photo, setPhoto] = useState(member.photo);
 
   const handleSubmit = (event) => {
     handleEdit(

@@ -17,7 +17,9 @@ import DeleteIcon from "@material-ui/icons/Delete";
 
 import { useStyle } from "../helpers/collapseStyleHelper";
 
-const Project = ({ name, image }) => {
+import MemberForm from "../Forms/ProjectForm";
+
+const Project = ({ project, handleDelete, handleEdit }) => {
   const classes = useStyle();
 
   const [expanded, setExpanded] = useState(false);
@@ -28,8 +30,8 @@ const Project = ({ name, image }) => {
   return (
     <Grid item xs={3}>
       <Card variant="outlined">
-        <CardHeader title={name} />
-        <CardMedia component="img" src={image} />
+        <CardHeader title={project.name} />
+        <CardMedia component="img" src={project.photo} />
         <CardActions>
           <IconButton
             className={clsx(classes.expand, {
@@ -39,12 +41,18 @@ const Project = ({ name, image }) => {
           >
             <EditIcon />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={() => handleDelete(project.id)}>
             <DeleteIcon />
           </IconButton>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>This is a form</CardContent>
+          <CardContent>
+            <MemberForm
+              member={project}
+              handleEdit={handleEdit}
+              handleExpandClick={handleExpandClick}
+            />
+          </CardContent>
         </Collapse>
       </Card>
     </Grid>

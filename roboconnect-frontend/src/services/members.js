@@ -8,7 +8,7 @@ const getMembers = async () => {
     id: member.id,
     name: member.first_name + " " + member.last_name,
     email: member.email,
-    department: member.department,
+    department: member.dept,
     projects: member.project_ids,
     photo: member.photo_uri,
   }));

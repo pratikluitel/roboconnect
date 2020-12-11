@@ -25,7 +25,7 @@ const Header = () => {
               style={{ color: "white" }}
               className={classes.title}
             >
-              IOE Robotics Club
+              IOE Pulchowk Robotics Club
             </Typography>
           </Button>
         </Toolbar>

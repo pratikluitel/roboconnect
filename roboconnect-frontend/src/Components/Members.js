@@ -4,7 +4,7 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { IconButton } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 
-import ModalForm from "./Forms/ModalForm";
+import ModalForm from "./Forms/MemberModalForm";
 
 import {
   getMembers,
