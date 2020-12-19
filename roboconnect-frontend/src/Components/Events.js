@@ -17,52 +17,18 @@ import { useState, useEffect } from "react";
 import { useStyle } from "./helpers/modalStyleHelper";
 
 const Events = () => {
-  //const [events,setEvents] = useState([])
+  const [events, setEvents] = useState([]);
   const [refetch, setRefetch] = useState([]);
   const [modalOpen, setModalopen] = useState(false);
-  const events = [
-    {
-      id: 0,
-      name: "RoboLocus",
-      location: "Pulchowk, Lalitpur",
-      date: "29th January 2020",
-      photo:
-        "https://lh3.googleusercontent.com/proxy/Q_YPPIfAGKRVXlOvYxaC3KRviLPlWtSqGlgHuc_7o7EvrXSN_y1WdVCp1bAR7BWIuq43d832i_oK3Ut8esG3zHk60jCdpVT9dqf69On2AeI74Dp_-lOrXj1lutEkyQ",
-    },
-    {
-      id: 1,
-      name: "RoboLocus",
-      location: "Pulchowk, Lalitpur",
-      date: "29th January 2020",
-      photo:
-        "https://lh3.googleusercontent.com/proxy/Q_YPPIfAGKRVXlOvYxaC3KRviLPlWtSqGlgHuc_7o7EvrXSN_y1WdVCp1bAR7BWIuq43d832i_oK3Ut8esG3zHk60jCdpVT9dqf69On2AeI74Dp_-lOrXj1lutEkyQ",
-    },
-    {
-      id: 2,
-      name: "RoboLocus",
-      location: "Pulchowk, Lalitpur",
-      date: "29th January 2020",
-      photo:
-        "https://lh3.googleusercontent.com/proxy/Q_YPPIfAGKRVXlOvYxaC3KRviLPlWtSqGlgHuc_7o7EvrXSN_y1WdVCp1bAR7BWIuq43d832i_oK3Ut8esG3zHk60jCdpVT9dqf69On2AeI74Dp_-lOrXj1lutEkyQ",
-    },
-    {
-      id: 3,
-      name: "RoboLocus",
-      location: "Pulchowk, Lalitpur",
-      date: "29th January 2020",
-      photo:
-        "https://lh3.googleusercontent.com/proxy/Q_YPPIfAGKRVXlOvYxaC3KRviLPlWtSqGlgHuc_7o7EvrXSN_y1WdVCp1bAR7BWIuq43d832i_oK3Ut8esG3zHk60jCdpVT9dqf69On2AeI74Dp_-lOrXj1lutEkyQ",
-    },
-  ];
 
   const classes = useStyle();
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const newMembers = await getMembers();
-  //     setEvents(newMembers);
-  //   })();
-  // }, [refetch]);
+  useEffect(() => {
+    (async () => {
+      const newMembers = await getMembers();
+      setEvents(newMembers);
+    })();
+  }, [refetch]);
 
   const handleModalopen = () => {
     setModalopen(true);

@@ -4,19 +4,19 @@ import Button from "@material-ui/core/Button";
 
 const MemberForm = ({ member, handleEdit, handleExpandClick }) => {
   const [name, setName] = useState(member.name);
-  const [photo, setPhoto] = useState(member.photo);
+  const [image, setimage] = useState(member.image);
 
   const handleSubmit = (event) => {
     handleEdit(
       {
         id: member.id,
         name,
-        photo,
+        image,
       },
       event
     );
     setName("");
-    setPhoto("");
+    setimage("");
     handleExpandClick();
   };
   return (
@@ -32,12 +32,12 @@ const MemberForm = ({ member, handleEdit, handleExpandClick }) => {
       />
       <TextField
         margin="dense"
-        placeholder="Photo URI"
-        id="photo"
+        placeholder="image URI"
+        id="image"
         type="text"
-        value={photo}
-        name="photo"
-        onChange={({ target }) => setPhoto(target.value)}
+        value={image}
+        name="image"
+        onChange={({ target }) => setimage(target.value)}
       />
       <br />
       <Button type="submit">Edit</Button>

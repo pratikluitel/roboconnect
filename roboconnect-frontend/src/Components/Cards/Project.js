@@ -31,7 +31,7 @@ const Project = ({ project, handleDelete, handleEdit }) => {
     <Grid item xs={3}>
       <Card variant="outlined">
         <CardHeader title={project.name} />
-        <CardMedia component="img" src={project.photo} />
+        <CardMedia component="img" src={project.image} />
         <CardActions>
           <IconButton
             className={clsx(classes.expand, {

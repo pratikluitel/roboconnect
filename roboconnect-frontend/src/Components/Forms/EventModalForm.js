@@ -6,7 +6,7 @@ const ModalForm = ({ handleAdd, handleModalclose }) => {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [date, setDate] = useState("");
-  const [photo, setPhoto] = useState("");
+  const [image, setimage] = useState("");
 
   const handleSubmit = (event) => {
     handleAdd(
@@ -14,14 +14,14 @@ const ModalForm = ({ handleAdd, handleModalclose }) => {
         name,
         location,
         date,
-        photo,
+        image,
       },
       event
     );
     setName("");
     setLocation("");
     setDate("");
-    setPhoto("");
+    setimage("");
     handleModalclose();
   };
   return (
@@ -55,12 +55,12 @@ const ModalForm = ({ handleAdd, handleModalclose }) => {
       />
       <TextField
         margin="dense"
-        placeholder="Photo URI"
-        id="photo"
+        placeholder="image URI"
+        id="image"
         type="text"
-        value={photo}
-        name="photo"
-        onChange={({ target }) => setPhoto(target.value)}
+        value={image}
+        name="image"
+        onChange={({ target }) => setimage(target.value)}
       />
       <br />
       <Button type="submit">Add</Button>

@@ -6,7 +6,7 @@ const MemberForm = ({ member, handleEdit, handleExpandClick }) => {
   const [name, setName] = useState(member.name);
   const [location, setLocation] = useState(member.location);
   const [date, setDate] = useState(member.date);
-  const [photo, setPhoto] = useState(member.photo);
+  const [image, setimage] = useState(member.image);
 
   const handleSubmit = (event) => {
     handleEdit(
@@ -15,14 +15,14 @@ const MemberForm = ({ member, handleEdit, handleExpandClick }) => {
         name,
         location,
         date,
-        photo,
+        image,
       },
       event
     );
     setName("");
     setLocation("");
     setDate("");
-    setPhoto("");
+    setimage("");
     handleExpandClick();
   };
   return (
@@ -56,12 +56,12 @@ const MemberForm = ({ member, handleEdit, handleExpandClick }) => {
       />
       <TextField
         margin="dense"
-        placeholder="Photo URI"
-        id="photo"
+        placeholder="image URI"
+        id="image"
         type="text"
-        value={photo}
-        name="photo"
-        onChange={({ target }) => setPhoto(target.value)}
+        value={image}
+        name="image"
+        onChange={({ target }) => setimage(target.value)}
       />
       <br />
       <Button type="submit">Edit</Button>

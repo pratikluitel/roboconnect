@@ -9,7 +9,7 @@ const getMembers = async () => {
     name: member.name,
     location: member.location,
     date: member.date,
-    image: member.image,
+    image: member.photo_uri,
   }));
 
   return actualMembers;
@@ -17,10 +17,10 @@ const getMembers = async () => {
 
 const putMember = async ({ id, name, location, date, image }) => {
   await axios.put(url + `/${id}`, {
-    name,
-    location,
-    date,
-    image,
+    name: name,
+    location: location,
+    date: date,
+    photo_uri: image,
   });
 };
 
@@ -30,10 +30,10 @@ const deleteMember = async (id) => {
 
 const postMember = async ({ name, location, date, image }) => {
   await axios.post(url, {
-    name,
-    location,
-    date,
-    image,
+    name: name,
+    location: location,
+    date: date,
+    photo_uri: image,
   });
 };
 

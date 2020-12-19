@@ -4,6 +4,7 @@ import clsx from "clsx";
 import {
   Grid,
   Card,
+  CardHeader,
   CardContent,
   CardMedia,
   IconButton,
@@ -29,8 +30,8 @@ const Event = ({ event, handleDelete, handleEdit }) => {
   return (
     <Grid item xs={3}>
       <Card variant="outlined">
-        <CardMedia component="img" src={event.photo} />
-        <CardContent>{event.name}</CardContent>
+        <CardHeader title={event.name} />
+        <CardMedia component="img" src={event.image} />
         <CardContent>{event.location}</CardContent>
         <CardContent>{event.date}</CardContent>
         <CardActions>

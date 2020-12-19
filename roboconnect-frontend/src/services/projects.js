@@ -6,8 +6,8 @@ const getMembers = async () => {
   const reply = await axios.get(url);
   const actualMembers = reply.data.map((member) => ({
     id: member.id,
-    name: member.name,
-    image: member.image,
+    name: member.title,
+    image: member.photo_uri,
   }));
 
   return actualMembers;
@@ -15,8 +15,8 @@ const getMembers = async () => {
 
 const putMember = async ({ id, name, image }) => {
   await axios.put(url + `/${id}`, {
-    name,
-    image,
+    title: name,
+    photo_uri: image,
   });
 };
 
@@ -26,8 +26,8 @@ const deleteMember = async (id) => {
 
 const postMember = async ({ name, image }) => {
   await axios.post(url, {
-    name,
-    image,
+    title: name,
+    photo_uri: image,
   });
 };
 

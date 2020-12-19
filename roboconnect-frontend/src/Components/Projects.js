@@ -17,27 +17,18 @@ import { useState, useEffect } from "react";
 import { useStyle } from "./helpers/modalStyleHelper";
 
 const Projects = () => {
-  //const [projects,setProjects] = useState([])
+  const [projects, setProjects] = useState([]);
   const [refetch, setRefetch] = useState([]);
   const [modalOpen, setModalopen] = useState(false);
 
-  const projects = [
-    {
-      id: 0,
-      name: "Sports Robot",
-      photo:
-        "https://singularityhub.com/wp-content/uploads/2019/05/robots-playing-soccer-robotics-2018-Montreal-Standard-Platform-League-The-Robocup-Federation-IMG-7226-1.jpg",
-    },
-  ];
-
   const classes = useStyle();
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const newMembers = await getMembers();
-  //     setProjects(newMembers);
-  //   })();
-  // }, [refetch]);
+  useEffect(() => {
+    (async () => {
+      const newMembers = await getMembers();
+      setProjects(newMembers);
+    })();
+  }, [refetch]);
 
   const handleModalopen = () => {
     setModalopen(true);
