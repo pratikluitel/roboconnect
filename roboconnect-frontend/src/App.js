@@ -1,4 +1,3 @@
-import Departments from "./Components/Departments";
 import Events from "./Components/Events";
 import Projects from "./Components/Projects";
 import Tournaments from "./Components/Tournaments";
@@ -30,9 +29,6 @@ function App() {
         </Grid>
         <Grid item xs={12}>
           <Members />
-        </Grid>
-        <Grid item xs={12}>
-          <Departments />
         </Grid>
         <Grid item xs={12}>
           <Projects />

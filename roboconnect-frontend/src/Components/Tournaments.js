@@ -5,7 +5,7 @@ import { IconButton } from "@material-ui/core";
 
 import Modal from "@material-ui/core/Modal";
 
-import ModalForm from "./Forms/ProjectModalForm";
+import ModalForm from "./Forms/TournamentModalForm";
 
 import {
   getMembers,
@@ -18,53 +18,18 @@ import { useState, useEffect } from "react";
 import { useStyle } from "./helpers/modalStyleHelper";
 
 const Tournaments = () => {
-  //const [tournaments,setTournaments] = useState([])
+  const [tournaments, setTournaments] = useState([]);
   const [refetch, setRefetch] = useState([]);
   const [modalOpen, setModalopen] = useState(false);
 
-  const tournaments = [
-    {
-      id: 0,
-      name: "IOE Robocon",
-      location: "Kathmandu, Nepal",
-      theme: "Robotics for social good",
-      date: "13th September 2018",
-      achievement: "First Place",
-    },
-    {
-      id: 1,
-      name: "IOE Robocon",
-      location: "Kathmandu, Nepal",
-      theme: "Robotics for social good",
-      date: "13th September 2018",
-      achievement: "First Place",
-    },
-    {
-      id: 2,
-      name: "IOE Robocon",
-      location: "Kathmandu, Nepal",
-      theme: "Robotics for social good",
-      date: "13th September 2018",
-      achievement: "First Place",
-    },
-    {
-      id: 3,
-      name: "IOE Robocon",
-      location: "Kathmandu, Nepal",
-      theme: "Robotics for social good",
-      date: "13th September 2018",
-      achievement: "First Place",
-    },
-  ];
-
   const classes = useStyle();
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const newMembers = await getMembers();
-  //     setProjects(newMembers);
-  //   })();
-  // }, [refetch]);
+  useEffect(() => {
+    (async () => {
+      const newMembers = await getMembers();
+      setTournaments(newMembers);
+    })();
+  }, [refetch]);
 
   const handleModalopen = () => {
     setModalopen(true);
