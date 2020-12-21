@@ -4,7 +4,7 @@ const url = "http://dbms-projekt.herokuapp.com/login";
 
 const getToken = async () => {
   const reply = await axios.post(url, {
-    email: "email@example.com",
+    email: "admin@example.com",
     password: "i-am-admin",
   });
   return reply.data;

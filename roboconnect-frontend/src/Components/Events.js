@@ -43,17 +43,17 @@ const Events = ({ user }) => {
   };
 
   const handleDelete = async (id) => {
-    await deleteMember(id);
+    await deleteMember(id, user);
     toggleRefetch();
   };
   const handleEdit = async (member, event) => {
     event.preventDefault();
-    await putMember(member);
+    await putMember(member, user);
     toggleRefetch();
   };
   const handleAdd = async (member, event) => {
     event.preventDefault();
-    await postMember(member);
+    await postMember(member, user);
     toggleRefetch();
   };
 

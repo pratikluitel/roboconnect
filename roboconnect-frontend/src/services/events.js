@@ -15,26 +15,46 @@ const getMembers = async () => {
   return actualMembers;
 };
 
-const putMember = async ({ id, name, location, date, image }) => {
-  await axios.put(url + `/${id}`, {
-    name: name,
-    location: location,
-    date: date,
-    photo_uri: image,
+const putMember = async ({ id, name, location, date, image }, user) => {
+  await axios.put(
+    url + `/${id}`,
+    {
+      name: name,
+      location: location,
+      date: date,
+      photo_uri: image,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    }
+  );
+};
+
+const deleteMember = async (id, user) => {
+  await axios.delete(url + `/${id}`, {
+    headers: {
+      Authorization: `Bearer ${user.token}`,
+    },
   });
 };
 
-const deleteMember = async (id) => {
-  await axios.delete(url + `/${id}`);
-};
-
-const postMember = async ({ name, location, date, image }) => {
-  await axios.post(url, {
-    name: name,
-    location: location,
-    date: date,
-    photo_uri: image,
-  });
+const postMember = async ({ name, location, date, image }, user) => {
+  await axios.post(
+    url,
+    {
+      name: name,
+      location: location,
+      date: date,
+      photo_uri: image,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    }
+  );
 };
 
 export { getMembers, putMember, deleteMember, postMember };

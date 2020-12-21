@@ -24,8 +24,8 @@ function App() {
   const [user, setUser] = useState(null);
 
   const classes = useStyles();
-  const handleLogin = () => {
-    const newUser = getToken();
+  const handleLogin = async () => {
+    const newUser = await getToken();
     setUser(newUser);
   };
   return (

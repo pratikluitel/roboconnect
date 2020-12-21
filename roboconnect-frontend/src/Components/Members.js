@@ -55,7 +55,6 @@ const Members = ({ user }) => {
     await postMember(member);
     toggleRefetch();
   };
-  console.log(members);
   return (
     <div className="members" style={{ marginTop: "50px" }}>
       <h1>Proud members of the Robotics Club family</h1>
