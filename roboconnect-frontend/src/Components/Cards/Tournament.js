@@ -18,7 +18,7 @@ import { useStyle } from "../helpers/collapseStyleHelper";
 
 import MemberForm from "../Forms/TournamentForm";
 
-const Tournament = ({ tournament, handleDelete, handleEdit }) => {
+const Tournament = ({ tournament, handleDelete, handleEdit, user }) => {
   const classes = useStyle();
 
   const [expanded, setExpanded] = useState(false);
@@ -33,19 +33,21 @@ const Tournament = ({ tournament, handleDelete, handleEdit }) => {
         <CardContent>{tournament.location}</CardContent>
         <CardContent>Theme: {tournament.theme}</CardContent>
         <CardContent>{tournament.date}</CardContent>
-        <CardActions>
-          <IconButton
-            className={clsx(classes.expand, {
-              [classes.expandOpen]: expanded,
-            })}
-            onClick={handleExpandClick}
-          >
-            <EditIcon />
-          </IconButton>
-          <IconButton onClick={() => handleDelete(tournament.id)}>
-            <DeleteIcon />
-          </IconButton>
-        </CardActions>
+        {user === null ? null : (
+          <CardActions>
+            <IconButton
+              className={clsx(classes.expand, {
+                [classes.expandOpen]: expanded,
+              })}
+              onClick={handleExpandClick}
+            >
+              <EditIcon />
+            </IconButton>
+            <IconButton onClick={() => handleDelete(tournament.id)}>
+              <DeleteIcon />
+            </IconButton>
+          </CardActions>
+        )}
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
             <MemberForm

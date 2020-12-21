@@ -16,7 +16,7 @@ import { useState, useEffect } from "react";
 
 import { useStyle } from "./helpers/modalStyleHelper";
 
-const Members = () => {
+const Members = ({ user }) => {
   const [members, setMembers] = useState([]);
   const [refetch, setRefetch] = useState([]);
   const [modalOpen, setModalopen] = useState(false);
@@ -66,11 +66,14 @@ const Members = () => {
             member={member}
             handleDelete={handleDelete}
             handleEdit={handleEdit}
+            user={user}
           />
         ))}
-        <IconButton onClick={handleModalopen}>
-          <AddCircleIcon />
-        </IconButton>
+        {user === null ? null : (
+          <IconButton onClick={handleModalopen}>
+            <AddCircleIcon />
+          </IconButton>
+        )}
       </Grid>
       <Modal
         open={modalOpen}

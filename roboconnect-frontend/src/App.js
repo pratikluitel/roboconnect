@@ -4,9 +4,11 @@ import Tournaments from "./Components/Tournaments";
 import Members from "./Components/Members";
 import Header from "./Components/Header";
 import Pitch from "./Components/Pitch";
+import getToken from "./services/login";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
+import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,25 +21,31 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
+  const [user, setUser] = useState(null);
+
   const classes = useStyles();
+  const handleLogin = () => {
+    const newUser = getToken();
+    setUser(newUser);
+  };
   return (
     <div className={classes.root}>
-      <Header />
+      <Header user={user} handleLogin={handleLogin} />
       <Grid container className={classes.grid}>
         <Grid item xs={12}>
-          <Pitch />
+          <Pitch user={user} />
         </Grid>
         <Grid item xs={12}>
-          <Members />
+          <Members user={user} />
         </Grid>
         <Grid item xs={12}>
-          <Projects />
+          <Projects user={user} />
         </Grid>
         <Grid item xs={12}>
-          <Tournaments />
+          <Tournaments user={user} />
         </Grid>
         <Grid item xs={12}>
-          <Events />
+          <Events user={user} />
         </Grid>
       </Grid>
     </div>

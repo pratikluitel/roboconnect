@@ -16,7 +16,7 @@ import { useState, useEffect } from "react";
 
 import { useStyle } from "./helpers/modalStyleHelper";
 
-const Projects = () => {
+const Projects = ({ user }) => {
   const [projects, setProjects] = useState([]);
   const [refetch, setRefetch] = useState([]);
   const [modalOpen, setModalopen] = useState(false);
@@ -67,11 +67,14 @@ const Projects = () => {
             project={project}
             handleDelete={handleDelete}
             handleEdit={handleEdit}
+            user={user}
           />
         ))}
-        <IconButton onClick={handleModalopen}>
-          <AddCircleIcon />
-        </IconButton>
+        {user === null ? null : (
+          <IconButton onClick={handleModalopen}>
+            <AddCircleIcon />
+          </IconButton>
+        )}
       </Grid>
       <Modal
         open={modalOpen}

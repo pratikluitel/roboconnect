@@ -19,7 +19,7 @@ import { useStyle } from "../helpers/collapseStyleHelper";
 
 import MemberForm from "../Forms/EventForm";
 
-const Event = ({ event, handleDelete, handleEdit }) => {
+const Event = ({ event, handleDelete, handleEdit, user }) => {
   const classes = useStyle();
 
   const [expanded, setExpanded] = useState(false);
@@ -34,19 +34,21 @@ const Event = ({ event, handleDelete, handleEdit }) => {
         <CardMedia component="img" src={event.image} />
         <CardContent>{event.location}</CardContent>
         <CardContent>{event.date}</CardContent>
-        <CardActions>
-          <IconButton
-            className={clsx(classes.expand, {
-              [classes.expandOpen]: expanded,
-            })}
-            onClick={handleExpandClick}
-          >
-            <EditIcon />
-          </IconButton>
-          <IconButton onClick={() => handleDelete(event.id)}>
-            <DeleteIcon />
-          </IconButton>
-        </CardActions>
+        {user === null ? null : (
+          <CardActions>
+            <IconButton
+              className={clsx(classes.expand, {
+                [classes.expandOpen]: expanded,
+              })}
+              onClick={handleExpandClick}
+            >
+              <EditIcon />
+            </IconButton>
+            <IconButton onClick={() => handleDelete(event.id)}>
+              <DeleteIcon />
+            </IconButton>
+          </CardActions>
+        )}
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
             <MemberForm

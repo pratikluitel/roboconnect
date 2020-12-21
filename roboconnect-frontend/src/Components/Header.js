@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = () => {
+const Header = ({ user, handleLogin }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -27,6 +27,9 @@ const Header = () => {
             >
               IOE Pulchowk Robotics Club
             </Typography>
+          </Button>
+          <Button color="inherit" onClick={handleLogin}>
+            Login
           </Button>
         </Toolbar>
       </AppBar>

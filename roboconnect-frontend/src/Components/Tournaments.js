@@ -17,7 +17,7 @@ import { useState, useEffect } from "react";
 
 import { useStyle } from "./helpers/modalStyleHelper";
 
-const Tournaments = () => {
+const Tournaments = ({ user }) => {
   const [tournaments, setTournaments] = useState([]);
   const [refetch, setRefetch] = useState([]);
   const [modalOpen, setModalopen] = useState(false);
@@ -68,11 +68,14 @@ const Tournaments = () => {
             tournament={tournament}
             handleDelete={handleDelete}
             handleEdit={handleEdit}
+            user={user}
           />
         ))}
-        <IconButton onClick={handleModalopen}>
-          <AddCircleIcon />
-        </IconButton>
+        {user === null ? null : (
+          <IconButton onClick={handleModalopen}>
+            <AddCircleIcon />
+          </IconButton>
+        )}
         <Modal
           open={modalOpen}
           onClose={handleModalclose}
