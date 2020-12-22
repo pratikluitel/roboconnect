@@ -16,45 +16,56 @@ const getMembers = async () => {
   return actualMembers;
 };
 
-const putMember = async ({
-  id,
-  firstname,
-  lastname,
-  email,
-  department,
-  projects,
-  photo,
-}) => {
-  await axios.put(url + `/${id}`, {
-    first_name: firstname,
-    last_name: lastname,
-    email: email,
-    dept: department,
-    project_ids: projects,
-    photo_uri: photo,
+const putMember = async (
+  { id, firstname, lastname, email, department, projects, photo },
+  user
+) => {
+  await axios.put(
+    url + `/${id}`,
+    {
+      first_name: firstname,
+      last_name: lastname,
+      email: email,
+      dept: department,
+      project_ids: projects,
+      photo_uri: photo,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    }
+  );
+};
+
+const deleteMember = async (id, user) => {
+  await axios.delete(url + `/${id}`, {
+    headers: {
+      Authorization: `Bearer ${user.token}`,
+    },
   });
 };
 
-const deleteMember = async (id) => {
-  await axios.delete(url + `/${id}`);
-};
-
-const postMember = async ({
-  firstname,
-  lastname,
-  email,
-  department,
-  projects,
-  photo,
-}) => {
-  await axios.post(url, {
-    first_name: firstname,
-    last_name: lastname,
-    email: email,
-    dept: department,
-    project_ids: projects,
-    photo_uri: photo,
-  });
+const postMember = async (
+  { firstname, lastname, email, department, projects, photo },
+  user
+) => {
+  await axios.post(
+    url,
+    {
+      first_name: firstname,
+      last_name: lastname,
+      email: email,
+      dept: department,
+      project_ids: projects,
+      photo_uri: photo,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    }
+  );
 };
 
 export { getMembers, putMember, deleteMember, postMember };

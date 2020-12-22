@@ -16,28 +16,54 @@ const getMembers = async () => {
   return actualMembers;
 };
 
-const putMember = async ({ id, name, location, theme, date, achievement }) => {
-  await axios.put(url + `/${id}`, {
-    name,
-    location,
-    theme,
-    date,
-    achievement,
+const putMember = async (
+  { id, name, location, theme, date, achievement },
+  user
+) => {
+  await axios.put(
+    url + `/${id}`,
+    {
+      name,
+      location,
+      theme,
+      date,
+      achievement,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    }
+  );
+};
+
+const deleteMember = async (id, user) => {
+  await axios.delete(url + `/${id}`, {
+    headers: {
+      Authorization: `Bearer ${user.token}`,
+    },
   });
 };
 
-const deleteMember = async (id) => {
-  await axios.delete(url + `/${id}`);
-};
-
-const postMember = async ({ name, location, theme, date, achievement }) => {
-  await axios.post(url, {
-    name,
-    location,
-    theme,
-    date,
-    achievement,
-  });
+const postMember = async (
+  { name, location, theme, date, achievement },
+  user
+) => {
+  await axios.post(
+    url,
+    {
+      name,
+      location,
+      theme,
+      date,
+      achievement,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    }
+  );
 };
 
 export { getMembers, putMember, deleteMember, postMember };
