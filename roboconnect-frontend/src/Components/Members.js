@@ -59,15 +59,17 @@ const Members = ({ user }) => {
     <div className="members" style={{ marginTop: "50px" }}>
       <h1>Proud members of the Robotics Club family</h1>
       <Grid container spacing={1} alignItems="center" justify="center">
-        {members.map((member) => (
-          <Member
-            key={member.id}
-            member={member}
-            handleDelete={handleDelete}
-            handleEdit={handleEdit}
-            user={user}
-          />
-        ))}
+        {members === null
+          ? null
+          : members.map((member) => (
+              <Member
+                key={member.id}
+                member={member}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+                user={user}
+              />
+            ))}
         {user === null ? null : (
           <IconButton onClick={handleModalopen}>
             <AddCircleIcon />

@@ -4,13 +4,16 @@ const url = "http://dbms-projekt.herokuapp.com/event";
 
 const getMembers = async () => {
   const reply = await axios.get(url);
-  const actualMembers = reply.data.map((member) => ({
-    id: member.id,
-    name: member.name,
-    location: member.location,
-    date: member.date,
-    image: member.photo_uri,
-  }));
+  const actualMembers =
+    reply.data === null
+      ? null
+      : reply.data.map((member) => ({
+          id: member.id,
+          name: member.name,
+          location: member.location,
+          date: member.date,
+          image: member.photo_uri,
+        }));
 
   return actualMembers;
 };

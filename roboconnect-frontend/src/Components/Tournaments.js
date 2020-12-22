@@ -62,15 +62,17 @@ const Tournaments = ({ user }) => {
     <div className="members" style={{ marginTop: "50px" }}>
       <h1>Tournaments we have participated in!</h1>
       <Grid container spacing={1} alignItems="center" justify="center">
-        {tournaments.map((tournament) => (
-          <Tournament
-            key={tournament.id}
-            tournament={tournament}
-            handleDelete={handleDelete}
-            handleEdit={handleEdit}
-            user={user}
-          />
-        ))}
+        {tournaments === null
+          ? null
+          : tournaments.map((tournament) => (
+              <Tournament
+                key={tournament.id}
+                tournament={tournament}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+                user={user}
+              />
+            ))}
         {user === null ? null : (
           <IconButton onClick={handleModalopen}>
             <AddCircleIcon />

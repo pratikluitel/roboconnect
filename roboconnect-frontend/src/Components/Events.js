@@ -61,15 +61,17 @@ const Events = ({ user }) => {
     <div className="members" style={{ marginTop: "50px" }}>
       <h1>Events we have organized</h1>
       <Grid container spacing={1} alignItems="center" justify="center">
-        {events.map((event) => (
-          <Event
-            key={event.id}
-            event={event}
-            handleDelete={handleDelete}
-            handleEdit={handleEdit}
-            user={user}
-          />
-        ))}
+        {events === null
+          ? null
+          : events.map((event) => (
+              <Event
+                key={event.id}
+                event={event}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+                user={user}
+              />
+            ))}
         {user === null ? null : (
           <IconButton onClick={handleModalopen}>
             <AddCircleIcon />
