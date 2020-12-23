@@ -23,6 +23,8 @@ const putMember = async (
   { id, firstname, lastname, email, department, projects, photo },
   user
 ) => {
+  const projectArr = projects.split(" ").map((project) => parseInt(project));
+  console.log(projectArr);
   await axios.put(
     url + `/${id}`,
     {
@@ -30,7 +32,7 @@ const putMember = async (
       last_name: lastname,
       email: email,
       dept: department,
-      project_ids: projects,
+      project_ids: projectArr,
       photo_uri: photo,
     },
     {
@@ -53,6 +55,7 @@ const postMember = async (
   { firstname, lastname, email, department, projects, photo },
   user
 ) => {
+  const projectArr = projects.split(" ").map((project) => parseInt(project));
   await axios.post(
     url,
     {
@@ -60,7 +63,7 @@ const postMember = async (
       last_name: lastname,
       email: email,
       dept: department,
-      project_ids: projects,
+      project_ids: projectArr,
       photo_uri: photo,
     },
     {

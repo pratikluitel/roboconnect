@@ -14,13 +14,14 @@ const getMembers = async () => {
           theme: member.theme,
           date: member.date,
           achievement: member.achievement,
+          project_id: member.project_id,
         }));
 
   return actualMembers;
 };
 
 const putMember = async (
-  { id, name, location, theme, date, achievement },
+  { id, name, location, theme, date, achievement, project_id },
   user
 ) => {
   await axios.put(
@@ -31,6 +32,7 @@ const putMember = async (
       theme,
       date,
       achievement,
+      project_id: parseInt(project_id),
     },
     {
       headers: {
@@ -49,7 +51,7 @@ const deleteMember = async (id, user) => {
 };
 
 const postMember = async (
-  { name, location, theme, date, achievement },
+  { name, location, theme, date, achievement, project_id },
   user
 ) => {
   await axios.post(
@@ -60,6 +62,7 @@ const postMember = async (
       theme,
       date,
       achievement,
+      project_id: parseInt(project_id),
     },
     {
       headers: {

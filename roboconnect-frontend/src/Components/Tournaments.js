@@ -17,9 +17,8 @@ import { useState, useEffect } from "react";
 
 import { useStyle } from "./helpers/modalStyleHelper";
 
-const Tournaments = ({ user }) => {
+const Tournaments = ({ user, refetch, setRefetch }) => {
   const [tournaments, setTournaments] = useState([]);
-  const [refetch, setRefetch] = useState([]);
   const [modalOpen, setModalopen] = useState(false);
 
   const classes = useStyle();

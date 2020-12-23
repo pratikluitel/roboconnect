@@ -23,6 +23,8 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const [user, setUser] = useState(null);
 
+  const [refetch, setRefetch] = useState([]);
+
   const classes = useStyles();
   const handleLogin = async () => {
     const newUser = await getToken();
@@ -30,7 +32,7 @@ function App() {
   };
   return (
     <div className={classes.root}>
-      <Header user={user} handleLogin={handleLogin} />
+      <Header user={user} handleLogin={handleLogin} setUser={setUser} />
       <Grid container className={classes.grid}>
         <Grid item xs={12}>
           <Pitch user={user} />
@@ -39,10 +41,10 @@ function App() {
           <Members user={user} />
         </Grid>
         <Grid item xs={12}>
-          <Projects user={user} />
+          <Projects user={user} refetch={refetch} setRefetch={setRefetch} />
         </Grid>
         <Grid item xs={12}>
-          <Tournaments user={user} />
+          <Tournaments user={user} refetch={refetch} setRefetch={setRefetch} />
         </Grid>
         <Grid item xs={12}>
           <Events user={user} />

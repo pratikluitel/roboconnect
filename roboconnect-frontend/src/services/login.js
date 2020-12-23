@@ -2,10 +2,10 @@ import axios from "axios";
 
 const url = "http://dbms-projekt.herokuapp.com/login";
 
-const getToken = async () => {
+const getToken = async (email, password) => {
   const reply = await axios.post(url, {
-    email: "admin@example.com",
-    password: "i-am-admin",
+    email,
+    password,
   });
   return reply.data;
 };

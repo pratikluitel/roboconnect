@@ -16,9 +16,8 @@ import { useState, useEffect } from "react";
 
 import { useStyle } from "./helpers/modalStyleHelper";
 
-const Projects = ({ user }) => {
+const Projects = ({ user, refetch, setRefetch }) => {
   const [projects, setProjects] = useState([]);
-  const [refetch, setRefetch] = useState([]);
   const [modalOpen, setModalopen] = useState(false);
 
   const classes = useStyle();

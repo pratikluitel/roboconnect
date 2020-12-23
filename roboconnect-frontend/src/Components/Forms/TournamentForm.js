@@ -8,6 +8,7 @@ const MemberForm = ({ member, handleEdit, handleExpandClick }) => {
   const [theme, setTheme] = useState(member.theme);
   const [date, setDate] = useState(member.date);
   const [achievement, setAchievement] = useState(member.achievement);
+  const [project_id, setProjectId] = useState(member.project_id);
 
   const handleSubmit = (event) => {
     handleEdit(
@@ -18,6 +19,7 @@ const MemberForm = ({ member, handleEdit, handleExpandClick }) => {
         theme,
         date,
         achievement,
+        project_id,
       },
       event
     );
@@ -26,6 +28,7 @@ const MemberForm = ({ member, handleEdit, handleExpandClick }) => {
     setTheme("");
     setDate("");
     setAchievement("");
+    setProjectId("");
     handleExpandClick();
   };
   return (
@@ -74,6 +77,15 @@ const MemberForm = ({ member, handleEdit, handleExpandClick }) => {
         value={achievement}
         name="achievements"
         onChange={({ target }) => setAchievement(target.value)}
+      />
+      <TextField
+        margin="dense"
+        placeholder="Project ID"
+        id="project_id"
+        type="text"
+        value={project_id}
+        name="project_id"
+        onChange={({ target }) => setProjectId(target.value)}
       />
       <br />
       <Button type="submit">Edit</Button>

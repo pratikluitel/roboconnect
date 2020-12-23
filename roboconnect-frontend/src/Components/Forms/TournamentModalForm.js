@@ -9,6 +9,7 @@ const ModalForm = ({ handleAdd, handleModalclose }) => {
   const [date, setDate] = useState("");
   const [achievement, setAchievement] = useState("");
   const [photo, setPhoto] = useState("");
+  const [project_id, setProjectId] = useState("");
 
   const handleSubmit = (event) => {
     handleAdd(
@@ -19,6 +20,7 @@ const ModalForm = ({ handleAdd, handleModalclose }) => {
         date,
         achievement,
         photo,
+        project_id,
       },
       event
     );
@@ -28,6 +30,7 @@ const ModalForm = ({ handleAdd, handleModalclose }) => {
     setDate("");
     setAchievement("");
     setPhoto("");
+    setProjectId("");
     handleModalclose();
   };
   return (
@@ -85,6 +88,15 @@ const ModalForm = ({ handleAdd, handleModalclose }) => {
         value={photo}
         name="photo"
         onChange={({ target }) => setPhoto(target.value)}
+      />
+      <TextField
+        margin="dense"
+        placeholder="Project ID"
+        id="project_id"
+        type="text"
+        value={project_id}
+        name="project_id"
+        onChange={({ target }) => setProjectId(target.value)}
       />
       <br />
       <Button type="submit">Add</Button>
