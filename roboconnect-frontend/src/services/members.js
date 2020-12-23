@@ -19,12 +19,29 @@ const getMembers = async () => {
   return actualMembers;
 };
 
+const getMember = async (id) => {
+  const reply = await axios.get(url + `/${id}`);
+
+  const actualMembers =
+    reply.data === null
+      ? null
+      : {
+          id: reply.data.id,
+          name: reply.data.first_name + " " + reply.data.last_name,
+          email: reply.data.email,
+          department: reply.data.dept,
+          projects: reply.data.project_ids,
+          photo: reply.data.photo_uri,
+        };
+
+  return actualMembers;
+};
+
 const putMember = async (
   { id, firstname, lastname, email, department, projects, photo },
   user
 ) => {
   const projectArr = projects.split(" ").map((project) => parseInt(project));
-  console.log(projectArr);
   await axios.put(
     url + `/${id}`,
     {
@@ -74,4 +91,4 @@ const postMember = async (
   );
 };
 
-export { getMembers, putMember, deleteMember, postMember };
+export { getMembers, putMember, deleteMember, postMember, getMember };

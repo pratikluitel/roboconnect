@@ -26,10 +26,11 @@ function App() {
   const [refetch, setRefetch] = useState([]);
 
   const classes = useStyles();
-  const handleLogin = async () => {
-    const newUser = await getToken();
+  const handleLogin = async (email, password) => {
+    const newUser = await getToken(email, password);
     setUser(newUser);
   };
+  console.log(user);
   return (
     <div className={classes.root}>
       <Header user={user} handleLogin={handleLogin} setUser={setUser} />

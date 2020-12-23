@@ -32,6 +32,7 @@ const Project = ({ project, handleDelete, handleEdit, user }) => {
       <Card variant="outlined">
         <CardHeader title={project.name} />
         <CardMedia component="img" src={project.image} />
+        <CardContent>Code: {project.id}</CardContent>
         {user === null ? null : (
           <CardActions>
             <IconButton

@@ -16,6 +16,20 @@ const getMembers = async () => {
   return actualMembers;
 };
 
+const getMember = async (id) => {
+  const reply = await axios.get(url + `/${id}`);
+  const actualMembers =
+    reply.data === null
+      ? null
+      : {
+          id: reply.data.id,
+          name: reply.data.title,
+          image: reply.data.photo_uri,
+        };
+
+  return actualMembers;
+};
+
 const putMember = async ({ id, name, image }, user) => {
   await axios.put(
     url + `/${id}`,
@@ -54,4 +68,4 @@ const postMember = async ({ name, image }, user) => {
   );
 };
 
-export { getMembers, putMember, deleteMember, postMember };
+export { getMembers, putMember, deleteMember, postMember, getMember };
